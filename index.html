@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Changeoutput Placeholder Generator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Generate placeholders from the ChangeOutput expansion in a visual way" />
+    <meta name="theme-color" content="#52efff">
+    
+    <title>ChangeOutput Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">ChangeOutput Generator</div>
+            <div class="subtitle">Professional placeholder generator</div>
+        </div>
+
+        <div class="form-section">
+            <a>If</a>
+            <input type="text" id="input1" placeholder="{luckperms_primary_group_name}">
+        </div>
+
+        <div class="form-section">
+            <select id="condition">
+                <option value="contain">contains</option>
+                <option value="equals" selected>equals</option>
+                <option value="ignorecolor">equals ignore colors</option>
+                <option value="ignorecase">equals ignore case</option>
+                <option value=">=">higher or equals than</option>
+                <option value=">">higher than</option>
+                <option value="<=">lower or equals than</option>
+                <option value="<">lower than</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <input type="text" id="input2" placeholder="default">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="form-section">
+            <a>Then</a>
+            <input type="text" id="ontrue" placeholder="&cBuy a rank!">
+        </div>
+
+        <div class="form-section">
+            <a>Else</a>
+            <input type="text" id="onfalse" placeholder="{luckperms_prefix}">
+        </div>
+
+        <div class="form-section">
+            <input type="button" id="generate" onclick="createPlaceholder()" value="Generate">
+        </div>
+
+        <div class="form-section">
+            <div class="textarea-container">
+                <button type="button" class="copy-btn" id="copyBtn">Copy</button>
+                <textarea id="generated-placeholder" cols="10" type="text" placeholder="Generated Placeholder!"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
