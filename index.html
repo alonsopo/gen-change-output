@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="ChangeOutput Placeholder Generator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://camo.githubusercontent.com/e6808e1f61e06a57070fcfe5c08033a0983213f022395d102edf1826aa8ba186/68747470733a2f2f77696b692e706c616365686f6c6465726170692e636f6d2f6173736574732f696d672f66617669636f6e732f616e64726f69642d6368726f6d652d353132783531322e706e67" />
+    <meta property="og:description" content="Generate placeholders from the ChangeOutput expansion in a visual way" />
+    <meta name="theme-color" content="#5865f2">
+    
+    <title>ChangeOutput Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i data-feather="code" class="logo-icon"></i>
+                <h1>ChangeOutput Generator</h1>
+            </div>
+            <p class="subtitle">Create your placeholders in a visual way</p>
+        </div>
+        
+        <div class="partnership-corner">
+            <a href="https://tect.host" target="_blank" class="corner-badge">
+                <div class="corner-content">
+                    <i data-feather="heart" class="corner-heart"></i>
+                    <span class="corner-text">Powered by</span>
+                    <span class="corner-brand">tect.host</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="form-container">
+            <div class="form-section">
+                <div class="section-header">
+                    <i data-feather="settings" class="section-icon"></i>
+                    <span class="section-title">Condition Setup</span>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label class="input-label">If</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="input1" placeholder="{luckperms_primary_group_name}" class="form-input">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Condition</label>
+                        <div class="select-wrapper">
+                            <select id="condition" class="form-select">
+                                <option value="contain">contains</option>
+                                <option value="equals" selected>equals</option>
+                                <option value="ignorecolor">equals ignore colors</option>
+                                <option value="ignorecase">equals ignore case</option>
+                                <option value=">=">higher or equals than</option>
+                                <option value=">">higher than</option>
+                                <option value="<=">lower or equals than</option>
+                                <option value="<">lower than</option>
+                            </select>
+                            <i data-feather="chevron-down" class="select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Value</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="input2" placeholder="default" class="form-input">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-header">
+                    <i data-feather="arrow-right-circle" class="section-icon"></i>
+                    <span class="section-title">Output Configuration</span>
+                </div>
+                
+                <div class="form-grid output-grid">
+                    <div class="input-group">
+                        <label class="input-label">Then (if true)</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="ontrue" placeholder="&cBuy a rank!" class="form-input">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Else (if false)</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="onfalse" placeholder="{luckperms_prefix}" class="form-input">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button type="button" id="generate" onclick="createPlaceholder()" class="generate-btn">
+                    <i data-feather="zap" class="btn-icon"></i>
+                    <span>Generate Placeholder</span>
+                    <div class="btn-shine"></div>
+                </button>
+            </div>
+
+            <div class="output-section">
+                <div class="output-header">
+                    <label class="output-label">Generated Placeholder</label>
+                    <button id="copy-btn" class="copy-btn" onclick="copyToClipboard()">
+                        <i data-feather="copy" class="copy-icon"></i>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+                <div class="textarea-wrapper">
+                    <textarea id="generated-placeholder" placeholder="Your generated placeholder will appear here..." readonly></textarea>
+                    <div class="textarea-border"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <i data-feather="check-circle" class="toast-icon"></i>
+        <span class="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
