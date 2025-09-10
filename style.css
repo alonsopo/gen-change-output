@@ -183,6 +183,14 @@ body {
     margin: 0;
 }
 
+.github-link {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-600);
+    background-clip: text;
+    margin: 0;
+}
+
 .subtitle {
     font-size: 1.1rem;
     color: var(--text-secondary);
